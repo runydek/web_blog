@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for blog in blog_list %}
+    {% for blog in blogs %}
             <h2><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></h2>
-            <small>Tags : {{ blog.tags }}</small><br>
-            <small>Posted by: {{ blog.author }}</small><br>
+            <small>Tags :</small>
+                {% for tag in blog.tags.all %}
+                    <a href="{% url 'tags' tag.title %}"><small>{{ tag.title }}</small></a>
+                {% endfor %}
+            <br>
+            Posted by: <a href="{% url 'user_blog' blog.author %}"><small>{{ blog.author }}</small></a><br>
             <small>Posted at {{ blog.created_on }}</small>
 
             <p>{{ blog.content }}</p>
