@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for object in blog %}
-        <b>{{ object.title }}</b>
+        <a href="{% url 'detail_blog_author' object.author object.slug %}"><b>{{ object.title }}</b></a>
         <p>{{ object.content }}</p>
     {% endfor %}
 

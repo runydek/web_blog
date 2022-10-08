@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ detail.title }}</h1>
+    <small>Posted by: {{ detail.author }}</small><br>
+    <small>Posted at {{ detail.created_on }}</small>
+
+    <p>{{ detail.content }}</p>
+
+{% endblock %}
